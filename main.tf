@@ -11,12 +11,12 @@ module "terraform-intersight-iks" {
 
 # Kubernetes Cluster Profile  Adjust the values as needed.
   cluster = {
-    name                = "new_cluster"
+    name                = "IKS-Cluster01"
     action              = "Unassign"
     wait_for_completion = false
-    worker_nodes        = 5
-    load_balancers      = 5
-    worker_max          = 20
+    worker_nodes        = 2
+    load_balancers      = 1
+    worker_max          = 3
     control_nodes       = 1
     ssh_user            = var.ssh_user
     ssh_public_key      = var.ssh_key
@@ -25,40 +25,40 @@ module "terraform-intersight-iks" {
 
 # IP Pool Information (To create new change "use_existing" to 'false' uncomment variables and modify them to meet your needs.)
   ip_pool = {
-    use_existing        = true
-    name                = "10-239-21-0"
-    # ip_starting_address = "10.239.21.220"
-    # ip_pool_size        = "20"
-    # ip_netmask          = "255.255.255.0"
-    # ip_gateway          = "10.239.21.1"
-    # dns_servers         = ["10.101.128.15","10.101.128.16"]
+    create_new   		= true
+    name                = "192-168-52-160-191"
+    ip_starting_address = "192.168.52.161"
+    ip_pool_size        = "30"
+    ip_netmask          = "255.255.255.0"
+    ip_gateway          = "192.168.52.254"
+    dns_servers         = ["192.168.51.129","8.8.8.8"]
   }
 
 # Sysconfig Policy (UI Reference NODE OS Configuration) (To create new change "use_existing" to 'false' uncomment variables and modify them to meet your needs.)
   sysconfig = {
-    use_existing = true
-    name         = "richfield"
-    # domain_name  = "rich.ciscolabs.com"
-    # timezone     = "America/New_York"
-    # ntp_servers  = ["10.101.128.15"]
-    # dns_servers  = ["10.101.128.15"]
+    create_new   = true
+    name         = "bit-lab"
+    domain_name  = "bispass.com"
+    timezone     = "America/Los_Angeles"
+    ntp_servers  = ["192.168.51.129"]
+    dns_servers  = ["192.168.51.129"]
   }
 
 # Kubernetes Network CIDR (To create new change "use_existing" to 'false' uncomment variables and modify them to meet your needs.)
   k8s_network = {
-    use_existing = true
+    create_new   = true
     name         = "default"
 
     ######### Below are the default settings.  Change if needed. #########
-    # pod_cidr     = "100.65.0.0/16"
-    # service_cidr = "100.64.0.0/24"
-    # cni          = "Calico"
+    pod_cidr     = "100.65.0.0/16"
+    service_cidr = "100.64.0.0/24"
+    cni          = "Calico"
   }
 # Version policy (To create new change "useExisting" to 'false' uncomment variables and modify them to meet your needs.)
   versionPolicy = {
-    useExisting = true
-    policyName     = "1-19-15-iks.3"
-    iksVersionName = "1.19.15-iks.3"
+    create_new   	= true
+    policyName     	= "1.20.14-iks.1"
+    iksVersionName 	= "1.20.14-iks.1"
   }
 # Trusted Registry Policy (To create new change "use_existing" to 'false' and set "create_new' to 'true' uncomment variables and modify them to meet your needs.)
 # Set both variables to 'false' if this policy is not needed.
@@ -90,7 +90,7 @@ module "terraform-intersight-iks" {
     use_existing = true
     # platformType = "iwe"
     # targetName   = "falcon"
-    policyName   = "dev"
+    policyName   = "bit-vcenter01"
     # description  = "Test Policy"
     # interfaces   = ["iwe-guests"]
     # vcTargetName   = optional(string)
@@ -126,44 +126,14 @@ module "terraform-intersight-iks" {
 
 # Worker Node Instance Type (To create new change "use_existing" to 'false' and uncomment variables and modify them to meet your needs.)
   instance_type = {
-    use_existing = true
+    create_new   = true
     name         = "small"
-    # cpu          = 4
-    # memory       = 16386
-    # disk_size    = 40
+    cpu          = 4
+    memory       = 16386
+    disk_size    = 40
   }
 
 # Organization and Tag Information
   organization = var.organization
   tags         = var.tags
-}
-Sample terraform.tfvars file.
-
-apikey       = ""
-secretkey    = "../../.secret"
-organization = "default"
-ssh_user = "iksadmin"
-ssh_key  = ""
-tags = [
-  {
-    "key" : "managed_by"
-    "value" : "Terraform"
-  },
-  {
-    "key" : "owner"
-    "value" : "jb"
-  }
-]
-organization = "default" # Change this if a different org is required.  Default org is set to "default"
-Sample versions.tf file
-
-terraform {
-  required_version = ">=1.1.0"
-
-  required_providers {
-    intersight = {
-      source  = "CiscoDevNet/intersight"
-      version = ">=1.0.18"
-    }
-  }
 }
