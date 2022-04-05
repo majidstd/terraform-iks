@@ -94,7 +94,7 @@ module "iks" {
     use_existing = false
     createNew = true
     platformType = "esxi"
-    targetName   = "falcon"
+    targetName   = "vcenter01.bitpass.com"
     policyName   = "bit-vcenter01"
     description  = "bit-vcenter01"
     vcClusterName      = "General"
