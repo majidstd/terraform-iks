@@ -5,7 +5,7 @@ provider "intersight" {
   endpoint  = var.endpoint
 }
 
-module "terraform-intersight-iks" {
+module "iks" {
 
   source  = "terraform-cisco-modules/iks/intersight//"
   version = "~>2.4.0"
