@@ -25,6 +25,7 @@ module "terraform-intersight-iks" {
 
 # IP Pool Information (To create new change "use_existing" to 'false' uncomment variables and modify them to meet your needs.)
   ip_pool = {
+    use_existing    = false
     create_new   		= true
     name                = "192-168-52-160-191"
     ip_starting_address = "192.168.52.161"
@@ -36,6 +37,7 @@ module "terraform-intersight-iks" {
 
 # Sysconfig Policy (UI Reference NODE OS Configuration) (To create new change "use_existing" to 'false' uncomment variables and modify them to meet your needs.)
   sysconfig = {
+    use_existing = false
     create_new   = true
     name         = "bit-lab"
     domain_name  = "bispass.com"
@@ -46,6 +48,7 @@ module "terraform-intersight-iks" {
 
 # Kubernetes Network CIDR (To create new change "use_existing" to 'false' uncomment variables and modify them to meet your needs.)
   k8s_network = {
+    use_existing = false
     create_new   = true
     name         = "default"
 
@@ -56,6 +59,7 @@ module "terraform-intersight-iks" {
   }
 # Version policy (To create new change "useExisting" to 'false' uncomment variables and modify them to meet your needs.)
   versionPolicy = {
+    use_existing = false
     create_new   	= true
     policyName     	= "1.20.14-iks.1"
     iksVersionName 	= "1.20.14-iks.1"
