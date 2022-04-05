@@ -59,7 +59,7 @@ module "terraform-intersight-iks" {
   }
 # Version policy (To create new change "useExisting" to 'false' uncomment variables and modify them to meet your needs.)
   versionPolicy = {
-    use_existing = false
+    useExisting = false
     create_new   	= true
     policyName     	= "1.20.14-iks.1"
     iksVersionName 	= "1.20.14-iks.1"
@@ -130,6 +130,7 @@ module "terraform-intersight-iks" {
 
 # Worker Node Instance Type (To create new change "use_existing" to 'false' and uncomment variables and modify them to meet your needs.)
   instance_type = {
+    use_existing = false
     create_new   = true
     name         = "small"
     cpu          = 4
