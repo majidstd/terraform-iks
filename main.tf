@@ -92,7 +92,8 @@ module "iks" {
 
 # Infrastructure Configuration Policy (To create new change "use_existing" to 'false' and uncomment variables and modify them to meet your needs.)
   infraConfigPolicy = {
-    use_existing = true
+    #use_existing = true
+    createNew = true
     # platformType = "iwe"
     # targetName   = "falcon"
     policyName   = "bit-vcenter01"
