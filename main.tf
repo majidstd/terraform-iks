@@ -93,16 +93,14 @@ module "iks" {
   infraConfigPolicy = {
     use_existing = false
     createNew = true
-    # platformType = "iwe"
-    # targetName   = "falcon"
+    platformType = "esxi"
+    targetName   = "falcon"
     policyName   = "bit-vcenter01"
-    # description  = "Test Policy"
-    # interfaces   = ["iwe-guests"]
-    # vcTargetName   = optional(string)
-    # vcClusterName      = optional(string)
-    # vcDatastoreName     = optional(string)
-    # vcResourcePoolName = optional(string)
-    # vcPassword      = optional(string)
+    description  = "bit-vcenter01"
+    vcClusterName      = "General"
+    vcDatastoreName    = "esx01-datastore1"
+    vcPassword         = var.vcPassword
+    vcResourcePoolName = ""
   }
 
 # Addon Profile and Policies (To create new change "createNew" to 'true' and uncomment variables and modify them to meet your needs.)
