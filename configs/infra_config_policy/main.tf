@@ -5,20 +5,20 @@ provider "intersight" {
 }
 
 #Policy Example for IWE
-module "iwe" {
-  source  = "terraform-cisco-modules/iks/intersight//modules/infra_config_policy"
-  version = "2.0.4"
-  vmConfig = {
-    platformType = "iwe"
-    targetName   = "falcon"
-    policyName   = "iwe-test"
-    description  = "Test Policy"
-    interfaces   = ["iwe-guests"]
-  }
+# module "iwe" {
+  # source  = "terraform-cisco-modules/iks/intersight//modules/infra_config_policy"
+  # version = "2.0.4"
+  # vmConfig = {
+    # platformType = "iwe"
+    # targetName   = "falcon"
+    # policyName   = "iwe-test"
+    # description  = "Test Policy"
+    # interfaces   = ["iwe-guests"]
+  # }
 
-  org_name = var.organization
-  tags     = var.tags
-}
+  # org_name = var.organization
+  # tags     = var.tags
+# }
 #Policy Example for Vcenter
 module "vcenter" {
   source = "terraform-cisco-modules/iks/intersight//modules/infra_config_policy"
