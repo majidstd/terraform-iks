@@ -12,7 +12,7 @@ module "iks" {
 # Kubernetes Cluster Profile  Adjust the values as needed.
   cluster = {
     name                = "IKS-Cluster01"
-    action              = "Deploy"
+    action              = "Unassign"
     wait_for_completion = false
     worker_nodes        = 2
     load_balancers      = 1
