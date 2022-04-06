@@ -15,9 +15,9 @@ module "iks" {
     name                = "IKS-Cluster01"
     action              = "Deploy"
     wait_for_completion = false
-    worker_nodes        = 2
+    worker_nodes        = 1
     load_balancers      = 1
-    worker_max          = 3
+    worker_max          = 2
     control_nodes       = 1
     ssh_user            = var.ssh_user
     ssh_public_key      = var.ssh_key
