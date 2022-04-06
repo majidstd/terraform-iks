@@ -97,6 +97,7 @@ module "iks" {
     targetName   = "vcenter01.bitpass.com"
     policyName   = "bit-vcenter01"
     description  = "bit-vcenter01"
+	interfaces   = ["BIT-DVS01-VLAN52"]
     vcClusterName      = "General"
     vcDatastoreName    = "esx01-datastore1"
     vcPassword         = var.vcPassword
