@@ -12,7 +12,7 @@ module "iks" {
 
 # Kubernetes Cluster Profile  Adjust the values as needed.
   cluster = {
-    name                = "IKS-Cluster03"
+    name                = "IKS-Cluster01"
     action              = "Deploy"
     wait_for_completion = false
     worker_nodes        = 1
@@ -40,7 +40,7 @@ module "iks" {
   sysconfig = {
     use_existing = false
     create_new   = true
-    name         = "iks-cluster03-sys-config-policy"
+    name         = "iks-cluster01-sys-config-policy"
     domain_name  = "bispass.com"
     timezone     = "America/Los_Angeles"
     ntp_servers  = ["192.168.51.129"]
@@ -51,7 +51,7 @@ module "iks" {
   k8s_network = {
     use_existing = false
     create_new   = true
-    name         = "iks-cluster03-network-policy"
+    name         = "iks-cluster01-network-policy"
 
     ######### Below are the default settings.  Change if needed. #########
     pod_cidr     = "100.65.0.0/16"
@@ -96,8 +96,8 @@ module "iks" {
     createNew = true
     platformType = "esxi"
     targetName   = "vcenter01.bitpass.com"
-    policyName   = "bit-vcenter03"
-    description  = "bit-vcenter03"
+    policyName   = "bit-vcenter01"
+    description  = "bit-vcenter01"
 	interfaces   = ["BIT-DVS01-VLAN52"]
     vcClusterName      = "General"
     vcDatastoreName    = "esx01-datastore1"
