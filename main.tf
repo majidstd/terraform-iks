@@ -60,7 +60,7 @@ module "iks" {
   }
 # Version policy (To create new change "useExisting" to 'false' uncomment variables and modify them to meet your needs.)
   versionPolicy = {
-    useExisting = true
+    useExisting = false
     create_new   	= true
     policyName     	= "1.21.10-iks.0"
     iksVersionName 	= "1.21.10-iks.0"
