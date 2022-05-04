@@ -12,12 +12,12 @@ module "iks" {
 
 # Kubernetes Cluster Profile  Adjust the values as needed.
   cluster = {
-    name                = "small"
-    action              = "Unassign"
+    name                = "iks-cluster01"
+    action              = "Deploy"
     wait_for_completion = false
-    worker_nodes        = 1
-    load_balancers      = 1
-    worker_max          = 2
+    worker_nodes        = 3
+    load_balancers      = 3
+    worker_max          = 4
     control_nodes       = 1
     ssh_user            = var.ssh_user
     ssh_public_key      = var.ssh_key
@@ -62,8 +62,8 @@ module "iks" {
   versionPolicy = {
     useExisting = false
     create_new   	= true
-    policyName     	= "1.20.14-iks.1"
-    iksVersionName 	= "1.20.14-iks.1"
+    policyName     	= "1.21.10-iks.0"
+    iksVersionName 	= "1.21.10-iks.0"
   }
 # Trusted Registry Policy (To create new change "use_existing" to 'false' and set "create_new' to 'true' uncomment variables and modify them to meet your needs.)
 # Set both variables to 'false' if this policy is not needed.
@@ -115,7 +115,7 @@ module "iks" {
     description       = "SMM Policy"
     upgradeStrategy  = "AlwaysReinstall"
     installStrategy  = "InstallOnly"
-    releaseVersion = "1.7.4-cisco4-helm3"
+    #releaseVersion = "1.7.4-cisco4-helm3"
     overrides = yamlencode({"demoApplication":{"enabled":true}})
     },
     # {
