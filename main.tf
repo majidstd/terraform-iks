@@ -1,8 +1,8 @@
 
 provider "intersight" {
-  apikey    = var.apikey
-  secretkey = var.secretkey
-  endpoint  = var.endpoint
+  apikey    = var.intersight_apikey
+  secretkey = var.intersight_secretkey
+  endpoint  = var.intersight_endpoint
 }
 
 module "iks" {
