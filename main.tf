@@ -19,8 +19,8 @@ module "iks" {
     load_balancers      = 3
     worker_max          = 4
     control_nodes       = 1
-    ssh_user            = var.ssh_user
-    ssh_public_key      = var.ssh_key
+    ssh_user            = var.iks_ssh_user
+    ssh_public_key      = var.iks_ssh_key
   }
 
 
