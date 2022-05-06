@@ -1,26 +1,27 @@
-variable "apikey" {
+variable "intersight_apikey" {
   type        = string
   description = "API Key"
 }
-variable "secretkey" {
+variable "intersight_secretkey" {
   type        = string
   description = "Secret Key or file location"
 }
-variable "endpoint" {
+variable "intersight_endpoint" {
   type        = string
   description = "API Endpoint URL"
-  default     = "www.intersight.com"
+  default     = "https://www.intersight.com"
 }
 variable "organization" {
   type        = string
   description = "Organization Name"
   default     = "default"
 }
-variable "ssh_user" {
+variable "iks_ssh_user" {
   type        = string
   description = "SSH Username for node login."
+  default     = "iksadmin"
 }
-variable "ssh_key" {
+variable "iks_ssh_key" {
   type        = string
   description = "SSH Public Key to be used to node login."
 }
