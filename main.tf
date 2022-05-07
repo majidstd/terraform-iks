@@ -54,8 +54,8 @@ module "iks" {
     name         = "iks-cluster01-network-policy"
 
     ######### Below are the default settings.  Change if needed. #########
-    pod_cidr     = "100.65.0.0/16"
-    service_cidr = "100.64.0.0/24"
+    pod_cidr     = "100.64.0.0/16"
+    service_cidr = "100.65.0.0/24"
     cni          = "Calico"
   }
 # Version policy (To create new change "useExisting" to 'false' uncomment variables and modify them to meet your needs.)
