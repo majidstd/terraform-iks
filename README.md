@@ -167,6 +167,16 @@ variable "tags" {
 | <a name="input_tr_policy"></a> [tr\_policy](#input\_tr\_policy) | n/a | <pre>object({<br>    use_existing        = bool<br>    create_new          = bool<br>    name                = optional(string)<br>    root_ca_registries  = optional(list(string))<br>    unsigned_registries = optional(list(string))<br>  })</pre> | n/a | yes |
 | <a name="input_versionPolicy"></a> [versionPolicy](#input\_versionPolicy) | n/a | <pre>object({<br>    useExisting    = bool<br>    policyName     = string<br>    iksVersionName = optional(string)<br>    description    = optional(string)<br>    versionName    = optional(string)<br>  })</pre> | n/a | yes |
 
+## BayInfotech Repositories
 
+Please visit our repositories for more detail and other projects in automation and programability:
+
+[https://github.com/bay-infotech](https://github.com/bay-infotech)
+
+
+## BayInfotech website
+We are working hard to bring more automation and programmability into community. Please contact us for more detail projects and solutions
+
+[https://bay-infotech.com](https://bay-infotech.com)
 
 
